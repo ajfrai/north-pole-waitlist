@@ -1,0 +1,5 @@
+{
+  "name": "North Pole Wishlist",
+  "description": "A festive family app to manage Christmas wishlists. Create your own list, view family members' lists, and claim gifts to avoid duplicates! Features AI-powered gift suggestions.",
+  "requestFramePermissions": []
+}
