@@ -2,9 +2,19 @@
 import { AppData, WishList } from '../types';
 
 const STORAGE_KEY_BUCKET = 'north_pole_bucket_id_v2';
-const DEFAULT_BUCKET_ID = '4JqnYPuEYxqTZGWRyFbWou';
 const LOCAL_STORAGE_KEY_DATA = 'north_pole_data_cache';
 const LOCAL_STORAGE_KEY_SHARDED = 'north_pole_use_sharded';
+
+// Generate a unique bucket ID for each user
+const generateBucketId = (): string => {
+  // Generate a random 22-character string similar to kvdb bucket IDs
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < 22; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+};
 
 // Check if dev mode is enabled
 const isDevMode = () => {
@@ -102,7 +112,13 @@ const SEED_DATA: AppData = {
 // --- END SEED DATA ---
 
 export const getBucketId = (): string => {
-  return localStorage.getItem(STORAGE_KEY_BUCKET) || DEFAULT_BUCKET_ID;
+  let bucketId = localStorage.getItem(STORAGE_KEY_BUCKET);
+  if (!bucketId) {
+    // Generate a unique bucket ID for this user
+    bucketId = generateBucketId();
+    localStorage.setItem(STORAGE_KEY_BUCKET, bucketId);
+  }
+  return bucketId;
 };
 
 export const setBucketId = (id: string) => {
