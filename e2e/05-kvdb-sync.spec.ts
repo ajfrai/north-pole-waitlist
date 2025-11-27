@@ -1,7 +1,10 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('KVDB Sync Operations', () => {
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page, context }) => {
+    // Block all kvdb.io requests to prevent polluting production data
+    await context.route('**/kvdb.io/**', route => route.abort());
+
     await page.goto('/');
     await page.evaluate(() => localStorage.clear());
     await page.reload();
