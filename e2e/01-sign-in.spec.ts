@@ -1,7 +1,10 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Sign-in Flow', () => {
-  test.beforeEach(async ({ page }) => {
+  test.beforeEach(async ({ page, context }) => {
+    // Block all kvdb.io requests to prevent polluting production data
+    await context.route('**/kvdb.io/**', route => route.abort());
+
     // Clear local storage before each test
     await page.goto('/');
     await page.evaluate(() => localStorage.clear());
