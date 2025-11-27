@@ -2,7 +2,7 @@
 <img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
 </div>
 
-# North Pole Waitlist - Family Gift Exchange App
+# North Pole Wishlist - Family Gift Exchange App
 
 A beautiful Christmas-themed family wishlist application for coordinating gift exchanges. Create wishlists, claim gifts, and avoid duplicate presents!
 
@@ -24,7 +24,7 @@ A beautiful Christmas-themed family wishlist application for coordinating gift e
 
 ## Live Demo
 
-🎄 **[View Live App](https://ajfrai.github.io/north-pole-waitlist/)**
+🎄 **[View Live App](https://ajfrai.github.io/north-pole-wishlist/)**
 
 The app is automatically deployed to GitHub Pages whenever changes are pushed to the main branch.
 
