@@ -15,7 +15,7 @@ test.describe('Gift Management', () => {
 
   test('should display user\'s wishlist', async ({ page }) => {
     // Click on Megan's list
-    await page.getByText('Megan', { exact: true }).click();
+    await page.getByRole('heading', { name: 'Megan' }).click();
 
     // Should show the wishlist page
     await expect(page.getByText('Megan\'s Wishlist')).toBeVisible();
